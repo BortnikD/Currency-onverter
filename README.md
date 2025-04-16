@@ -3,7 +3,6 @@
 **My first experience in Kotlin.**  
 A simple currency converter application written using Spring Framework 🌱.
 
----
 
 ## Features
 
@@ -11,15 +10,12 @@ A simple currency converter application written using Spring Framework 🌱.
 - 🌱 **Spring Framework**: Leverages Spring for dependency injection and application configuration.
 - 💱 **Currency Conversion**: Convert between popular currencies with ease.
 
----
-
 ## Requirements
 
 - **Java**: JDK 11+
 - **Kotlin**: 1.5+
 - **Spring Boot**: 2.5+
 
----
 
 ## Setup and Usage
 
