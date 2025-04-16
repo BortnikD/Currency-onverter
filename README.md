@@ -25,7 +25,7 @@ A simple currency converter application written using Spring Framework 🌱.
    ```
 2. Navigate into the project directory:
    ```bash
-   cd Currency-onverter
+   cd CurrencyConverter
    ```
 3. Build and run the application
    ```bash
@@ -49,4 +49,4 @@ Contributions are welcome! Feel free to fork this repository and submit pull req
 
 ## Author
 BortnikD  
-GitHub: BortnikD  
+GitHub: [https://github.com/BortnikD](BortnikD)
