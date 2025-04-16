@@ -49,4 +49,4 @@ Contributions are welcome! Feel free to fork this repository and submit pull req
 
 ## Author
 BortnikD  
-GitHub: [https://github.com/BortnikD](BortnikD)
+GitHub: [BortnikD](https://github.com/BortnikD)
