@@ -34,7 +34,7 @@ A simple currency converter application written using Spring Framework 🌱.
 
 ## Directory Structure
 ```code
-Currency-onverter/
+CurrencyConverter/
 ├── src/
 │   ├── main/
 │   │   ├── kotlin/         # Kotlin source code
@@ -43,9 +43,6 @@ Currency-onverter/
 ├── build.gradle            # Gradle build file
 ├── settings.gradle         # Gradle settings
 ```
-
-## Contributing
-Contributions are welcome! Feel free to fork this repository and submit pull requests.
 
 ## Author
 BortnikD  
