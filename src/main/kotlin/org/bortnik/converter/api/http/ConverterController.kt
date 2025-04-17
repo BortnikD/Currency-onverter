@@ -1,6 +1,9 @@
 package org.bortnik.converter.api.http
 
-import org.bortnik.converter.domain.dto.CurrencyResponse
+import jakarta.validation.constraints.NotBlank
+import jakarta.validation.constraints.Positive
+import jakarta.validation.constraints.Size
+import org.bortnik.converter.domain.dto.Currency
 import org.bortnik.converter.usecase.GetCurrencyDataUseCase
 import org.springframework.http.HttpStatus
 import org.springframework.http.ResponseEntity
@@ -18,9 +21,9 @@ class ConverterController(
 
     @GetMapping
     suspend fun getCurrency(
-        @RequestParam name: String,
-        @RequestParam amount: Double = 1.0
-    ): ResponseEntity<CurrencyResponse> {
+        @RequestParam @NotBlank @Size(min = 3, max = 3) name: String,
+        @RequestParam @Positive amount: Double = 1.0
+    ): ResponseEntity<Currency> {
 
         if(name.length > 3) {
             ResponseEntity.status(400).body("Incorrect currency name")
@@ -36,9 +39,9 @@ class ConverterController(
 
     @GetMapping("/compare")
     suspend fun compareCurrencies(
-        @RequestParam from: String,
-        @RequestParam to: String,
-        @RequestParam amount: Double = 1.0
+        @RequestParam @NotBlank @Size(min = 3, max = 3) from: String,
+        @RequestParam @NotBlank @Size(min = 3, max = 3) to: String,
+        @RequestParam @Positive amount: Double = 1.0
     ): ResponseEntity<Double> {
 
         if(from.length > 3 || to.length > 3) {
