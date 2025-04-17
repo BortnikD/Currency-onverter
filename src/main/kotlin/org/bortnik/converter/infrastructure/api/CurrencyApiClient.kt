@@ -1,7 +1,11 @@
 package org.bortnik.converter.infrastructure.api
 
 import org.bortnik.converter.domain.dto.Currency
+import org.bortnik.converter.domain.exceptions.CurrencyApiException
+import org.bortnik.converter.domain.exceptions.CurrencyNotFoundException
+import org.bortnik.converter.domain.exceptions.InvalidRequestException
 import org.bortnik.converter.domain.repositories.CurrencyRepository
+import org.springframework.http.HttpStatus
 import org.springframework.http.MediaType
 import org.springframework.stereotype.Repository
 import org.springframework.web.reactive.function.client.WebClient
@@ -22,7 +26,11 @@ class CurrencyApiClient: CurrencyRepository {
             .accept(MediaType.APPLICATION_JSON)
             .retrieve()
             .onStatus({ it.isError }) { response ->
-                throw RuntimeException("API error: ${response.statusCode()}")
+                when (response.statusCode()) {
+                    HttpStatus.NOT_FOUND -> throw CurrencyNotFoundException(name)
+                    HttpStatus.BAD_REQUEST -> throw InvalidRequestException("Invalid parameters")
+                    else -> throw CurrencyApiException("API error: ${response.statusCode()}")
+                }
             }
             .awaitBody<Currency>()
     }
