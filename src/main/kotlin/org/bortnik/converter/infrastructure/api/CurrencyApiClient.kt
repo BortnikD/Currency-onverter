@@ -1,6 +1,6 @@
 package org.bortnik.converter.infrastructure.api
 
-import org.bortnik.converter.domain.dto.CurrencyResponse
+import org.bortnik.converter.domain.dto.Currency
 import org.bortnik.converter.domain.repositories.CurrencyRepository
 import org.springframework.http.MediaType
 import org.springframework.stereotype.Repository
@@ -16,7 +16,7 @@ class CurrencyApiClient: CurrencyRepository {
         .defaultHeader("Accept", MediaType.APPLICATION_JSON_VALUE)
         .build()
 
-    override suspend fun getCurrencyDataOfNameAndAmount(name: String, amount: Double): CurrencyResponse {
+    override suspend fun getCurrencyDataOfNameAndAmount(name: String, amount: Double): Currency {
         return webClient.get()
             .uri("/latest?base={name}&amount={amount}", name, amount)
             .accept(MediaType.APPLICATION_JSON)
@@ -24,7 +24,7 @@ class CurrencyApiClient: CurrencyRepository {
             .onStatus({ it.isError }) { response ->
                 throw RuntimeException("API error: ${response.statusCode()}")
             }
-            .awaitBody<CurrencyResponse>()
+            .awaitBody<Currency>()
     }
 
 }

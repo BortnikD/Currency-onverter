@@ -1,6 +1,6 @@
 package org.bortnik.converter.usecase
 
-import org.bortnik.converter.domain.dto.CurrencyResponse
+import org.bortnik.converter.domain.dto.Currency
 import org.bortnik.converter.domain.repositories.CurrencyRepository
 import org.springframework.stereotype.Service
 
@@ -9,7 +9,7 @@ class GetCurrencyDataUseCase(
     private val currencyRepository: CurrencyRepository
 ) {
 
-    suspend fun getCurrencyDataOfName(name: String, amount: Double): CurrencyResponse {
+    suspend fun getCurrencyDataOfName(name: String, amount: Double): Currency {
         return currencyRepository.getCurrencyDataOfNameAndAmount(name, amount)
     }
 
