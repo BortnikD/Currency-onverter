@@ -9,7 +9,7 @@ class GetCurrencyDataUseCase(
     private val currencyRepository: CurrencyRepository
 ) {
 
-    suspend fun getCurrencyDataOfName(name: String, amount: Double): Currency {
+    suspend fun getCurrencyDataOfNameAndAmount(name: String, amount: Double): Currency {
         return currencyRepository.getCurrencyDataOfNameAndAmount(name, amount)
     }
 
