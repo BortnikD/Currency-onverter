@@ -29,7 +29,6 @@ dependencies {
     testRuntimeOnly("org.junit.platform:junit-platform-launcher")
     implementation("org.springframework.boot:spring-boot-starter-webflux")  // WebClient + Reactor
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-reactor:1.8.0")
-    implementation("org.springframework.boot:spring-boot-starter-validation")
 }
 
 kotlin {
