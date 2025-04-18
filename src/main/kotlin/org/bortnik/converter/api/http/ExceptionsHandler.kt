@@ -6,6 +6,7 @@ import org.bortnik.converter.domain.exceptions.InvalidRequestException
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.ExceptionHandler
 import org.springframework.web.bind.annotation.RestControllerAdvice
+import org.springframework.web.server.MissingRequestValueException
 
 @RestControllerAdvice
 class ExceptionsHandler {
@@ -37,13 +38,22 @@ class ExceptionsHandler {
             )
     }
 
-//    @ExceptionHandler(Exception::class)
-//    fun handleGenericException(e: Exception): ResponseEntity<ApiError> {
-//        return ResponseEntity
-//            .status(500)
-//            .body(ApiError(
-//                message = "Internal server error"
-//            ))
-//    }
+    @ExceptionHandler(MissingRequestValueException::class)
+    fun handleMissingRequestValueException(e: MissingRequestValueException): ResponseEntity<ApiError> {
+        return ResponseEntity
+            .status(400)
+            .body(
+                ApiError("Missing request parameter")
+            )
+    }
+
+    @ExceptionHandler(Exception::class)
+    fun handleGenericException(e: Exception): ResponseEntity<ApiError> {
+        return ResponseEntity
+            .status(500)
+            .body(ApiError(
+                message = "Internal server error"
+            ))
+    }
 
 }
