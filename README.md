@@ -1,7 +1,7 @@
 # Currency Converter 🌍💱
 
 **My first experience in Kotlin.**  
-A simple currency converter application written using Spring Framework 🌱.
+A simple currency converter application written using Spring Framework 🌱
 
 ## Features
 
@@ -13,7 +13,7 @@ A simple currency converter application written using Spring Framework 🌱.
 
 1. Clone this repository:
    ```bash
-   git clone https://github.com/BortnikD/Currency-onverter.git
+   git clone https://github.com/BortnikD/CurrencyConverter.git
    ```
 2. Navigate into the project directory:
    ```bash
