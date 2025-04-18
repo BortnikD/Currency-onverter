@@ -15,7 +15,7 @@ class GetCurrencyDataUseCase(
 
     suspend fun convertCurrencies(from: String, to: String, amount: Double = 1.0): Double {
         val response = currencyRepository.getCurrencyDataOfNameAndAmount(from, amount)
-        return response.rates[to] ?: throw IllegalArgumentException()
+        return response.rates[to]!!
     }
 
 }
