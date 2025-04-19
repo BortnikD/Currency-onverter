@@ -3,7 +3,6 @@ package org.bortnik.converter.api.http
 import org.bortnik.converter.domain.dto.Currency
 import org.bortnik.converter.domain.exceptions.InvalidRequestException
 import org.bortnik.converter.usecase.GetCurrencyDataUseCase
-import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.RequestParam
@@ -19,14 +18,14 @@ class ConverterController(
     suspend fun getCurrency(
         @RequestParam name: String,
         @RequestParam amount: Double = 1.0
-    ): ResponseEntity<Currency> {
+    ): Currency {
         if (name.length != 3) {
-           throw InvalidRequestException("The name length must be equal to 3")
+            throw InvalidRequestException("The name length must be equal to 3")
         }
         if (amount <= 0) {
-            throw InvalidRequestException("The amount must be greet then 0")
+            throw InvalidRequestException("The amount must be greater than 0")
         }
-        return ResponseEntity.ok(currencyUseCase.getCurrencyDataOfNameAndAmount(name, amount))
+        return currencyUseCase.getCurrencyDataOfNameAndAmount(name, amount)
     }
 
     @GetMapping("/compare")
@@ -34,15 +33,13 @@ class ConverterController(
         @RequestParam from: String,
         @RequestParam to: String,
         @RequestParam amount: Double = 1.0
-    ): ResponseEntity<Double> {
+    ): Double {
         if (from.length != 3 || to.length != 3) {
             throw InvalidRequestException("The name length must be equal to 3")
         }
         if (amount <= 0) {
-            throw InvalidRequestException("The amount must be greet then 0")
+            throw InvalidRequestException("The amount must be greater than 0")
         }
-
-        return ResponseEntity.ok(currencyUseCase.convertCurrencies(from, to, amount))
+        return currencyUseCase.convertCurrencies(from, to, amount)
     }
-
 }
