@@ -8,6 +8,8 @@ A simple currency converter application written using Spring Framework 🌱
 - 🛠 **Built with Kotlin**: 100% Kotlin-based code for modern, concise, and safe programming.
 - 🌱 **Spring Framework**: Leverages Spring for dependency injection and application configuration.
 - 💱 **Currency Conversion**: Convert between popular currencies with ease.
+- 🌐 **Third-Party API Integration**: Seamlessly integrates with reliable external currency exchange APIs to fetch up-to-date exchange rates in real time.
+- ⚡️ **Redis Caching**: Efficient caching powered by Redis to speed up currency conversion responses and reduce load on external APIs.
 
 ## Setup and Usage
 
