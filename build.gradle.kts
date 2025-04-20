@@ -34,6 +34,9 @@ dependencies {
     implementation("io.lettuce:lettuce-core") // Для Redis
 
     implementation("com.fasterxml.jackson.datatype:jackson-datatype-jsr310") // Для поддержки Datetime
+
+    implementation("org.springframework.boot:spring-boot-starter-data-r2dbc")
+    runtimeOnly("org.postgresql:r2dbc-postgresql")
 }
 
 kotlin {
