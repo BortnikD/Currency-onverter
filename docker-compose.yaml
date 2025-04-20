@@ -11,6 +11,22 @@ services:
       retries: 5
       timeout: 3s
 
+  postgres:
+    image: postgres:13
+    container_name: spring_postgres
+    environment:
+      POSTGRES_USER: ${DB_USERNAME}
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
+      POSTGRES_DB: spring
+    ports:
+      - "5432:5432"
+    restart: always
+    healthcheck:
+      test: [ "CMD-SHELL", "pg_isready -U ${DB_USERNAME} -d spring" ]
+      interval: 5s
+      retries: 5
+      timeout: 3s
+
   app:
     build:
       context: .
@@ -20,4 +36,6 @@ services:
     restart: always
     depends_on:
       redis:
+        condition: service_healthy
+      postgres:
         condition: service_healthy
