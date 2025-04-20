@@ -1,13 +1,10 @@
 package org.bortnik.converter.domain.entities
 
-import org.springframework.data.annotation.Id
-import org.springframework.data.relational.core.mapping.Table
-
-@Table
 data class ExchangeRate (
-    @Id
-    val id: Long? = null,
-    val sessionId: Long,
+    val id: Long,
+    val sessionId: ExchangeSessionId,
     val currency: String,
     val rate: Double
 )
+
+data class ExchangeRatesId (val id: Long)
