@@ -37,6 +37,12 @@ dependencies {
 
     implementation("org.springframework.boot:spring-boot-starter-data-r2dbc")
     runtimeOnly("org.postgresql:r2dbc-postgresql")
+
+    // Flyway и JDBC зависимости
+    implementation("org.springframework.boot:spring-boot-starter-jdbc") // Лучше использовать starter-jdbc вместо data-jdbc
+    implementation("org.flywaydb:flyway-core") // Убрана явная версия - используем версию из Spring Boot
+    implementation("org.flywaydb:flyway-database-postgresql")
+    runtimeOnly("org.postgresql:postgresql") // JDBC драйвер
 }
 
 kotlin {
