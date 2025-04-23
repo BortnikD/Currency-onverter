@@ -2,13 +2,14 @@ package org.bortnik.converter.domain.entities
 
 import org.springframework.data.annotation.Id
 import org.springframework.data.relational.core.mapping.Table
+import java.time.LocalDate
 
 
-@Table("exchange_rates")
-data class ExchangeRate (
+@Table("exchange_sessions")
+data class ExchangeSession (
     @Id
     val id: Long? = null,
-    val sessionId: Long,
-    val currency: String,
-    val rate: Double
+    val baseCurrency: String,
+    val date: LocalDate
 )
+
