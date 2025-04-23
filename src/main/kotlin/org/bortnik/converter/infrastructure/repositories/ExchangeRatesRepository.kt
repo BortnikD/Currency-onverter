@@ -10,6 +10,6 @@ import java.util.UUID
 @Repository
 interface ExchangeRatesRepository : CoroutineCrudRepository<ExchangeRate, UUID> {
 
-    fun findBySessionId(sessionId: Long) : List<ExchangeRate>?
+    suspend fun findBySessionId(sessionId: Long) : List<ExchangeRate>?
 
 }

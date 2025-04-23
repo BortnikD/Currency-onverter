@@ -8,8 +8,8 @@ import java.util.UUID
 @Repository
 interface ExchangeSessionRepository : CoroutineCrudRepository<ExchangeSession, UUID> {
 
-    fun findByBaseCurrency(baseCurrency: String): ExchangeSession?
+    suspend fun findByBaseCurrency(baseCurrency: String): ExchangeSession?
 
-    fun findByBaseCurrencyOrderByDateDesc(baseCurrency: String): ExchangeSession?
+    suspend fun findByBaseCurrencyOrderByDateDesc(baseCurrency: String): ExchangeSession?
 
 }
