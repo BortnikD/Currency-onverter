@@ -1,4 +1,4 @@
-package org.bortnik.converter.api.http
+package org.bortnik.converter.api.http.controllers
 
 import org.bortnik.converter.domain.dto.Currency
 import org.bortnik.converter.domain.exceptions.InvalidRequestException
