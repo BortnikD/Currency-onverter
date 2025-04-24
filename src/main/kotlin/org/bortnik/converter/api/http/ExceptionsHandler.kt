@@ -1,8 +1,8 @@
 package org.bortnik.converter.api.http
 
-import org.bortnik.converter.domain.exceptions.CurrencyApiException
-import org.bortnik.converter.domain.exceptions.CurrencyNotFoundException
-import org.bortnik.converter.domain.exceptions.InvalidRequestException
+import org.bortnik.converter.domain.exceptions.currency.CurrencyApiException
+import org.bortnik.converter.domain.exceptions.currency.CurrencyNotFoundException
+import org.bortnik.converter.domain.exceptions.currency.InvalidRequestException
 import org.bortnik.converter.domain.exceptions.rate.RateCreateError
 import org.bortnik.converter.domain.exceptions.rate.RateNotFound
 import org.bortnik.converter.domain.exceptions.session.SessionCreateError

@@ -1,6 +1,6 @@
-package org.bortnik.converter.domain.exceptions
+package org.bortnik.converter.domain.exceptions.currency
 
-class InvalidRequestException: Exception {
+class CurrencyApiException: Exception {
     constructor(message: String): super(message)
     constructor(message: String, cause: Throwable): super(message, cause)
 }

@@ -1,7 +1,7 @@
 package org.bortnik.converter.api.http.controllers
 
 import org.bortnik.converter.domain.dto.ExchangeSessionWithRates
-import org.bortnik.converter.domain.exceptions.InvalidRequestException
+import org.bortnik.converter.domain.exceptions.currency.InvalidRequestException
 import org.bortnik.converter.usecase.GetExchangeCurrencyUseCase
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.PathVariable
