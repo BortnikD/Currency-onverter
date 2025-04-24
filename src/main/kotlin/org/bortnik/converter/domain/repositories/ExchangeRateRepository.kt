@@ -1,10 +1,12 @@
 package org.bortnik.converter.domain.repositories
 
-import org.bortnik.converter.domain.entities.ExchangeRate
+import org.bortnik.converter.domain.dto.exchangeRate.ExchangeRate
 
 
 interface ExchangeRateRepository {
 
-    fun findBySessionId(sessionId: Long) : ExchangeRate?
+    suspend fun findBySessionId(sessionId: Long) : List<ExchangeRate>
+
+    suspend fun save(exchangeRate: ExchangeRate): ExchangeRate
 
 }

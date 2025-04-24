@@ -1,9 +1,9 @@
 package org.bortnik.converter.infrastructure.api
 
 import org.bortnik.converter.domain.dto.Currency
-import org.bortnik.converter.domain.exceptions.CurrencyApiException
-import org.bortnik.converter.domain.exceptions.CurrencyNotFoundException
-import org.bortnik.converter.domain.exceptions.InvalidRequestException
+import org.bortnik.converter.domain.exceptions.currency.CurrencyApiException
+import org.bortnik.converter.domain.exceptions.currency.CurrencyNotFoundException
+import org.bortnik.converter.domain.exceptions.currency.InvalidRequestException
 import org.bortnik.converter.domain.repositories.CurrencyRepository
 import org.springframework.http.HttpStatus
 import org.springframework.http.MediaType

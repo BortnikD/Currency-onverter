@@ -1,12 +1,12 @@
-package org.bortnik.converter.infrastructure.repositories
+package org.bortnik.converter.infrastructure.repositories.spring
 
 import org.bortnik.converter.domain.entities.ExchangeSession
 import org.springframework.data.repository.kotlin.CoroutineCrudRepository
 import org.springframework.stereotype.Repository
-import java.util.UUID
+import java.util.*
 
 @Repository
-interface ExchangeSessionRepository : CoroutineCrudRepository<ExchangeSession, UUID> {
+interface SpringExchangeSessionRepository : CoroutineCrudRepository<ExchangeSession, UUID> {
 
     suspend fun findByBaseCurrency(baseCurrency: String): ExchangeSession?
 

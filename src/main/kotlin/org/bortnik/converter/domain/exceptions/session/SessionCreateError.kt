@@ -1,6 +1,6 @@
-package org.bortnik.converter.domain.exceptions
+package org.bortnik.converter.domain.exceptions.session
 
-class InvalidRequestException: Exception {
+class SessionCreateError: Exception {
     constructor(message: String): super(message)
     constructor(message: String, cause: Throwable): super(message, cause)
 }

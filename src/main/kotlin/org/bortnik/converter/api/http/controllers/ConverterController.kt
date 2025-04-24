@@ -1,7 +1,7 @@
-package org.bortnik.converter.api.http
+package org.bortnik.converter.api.http.controllers
 
 import org.bortnik.converter.domain.dto.Currency
-import org.bortnik.converter.domain.exceptions.InvalidRequestException
+import org.bortnik.converter.domain.exceptions.currency.InvalidRequestException
 import org.bortnik.converter.usecase.GetCurrencyDataUseCase
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.RequestMapping

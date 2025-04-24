@@ -1,4 +1,4 @@
-package org.bortnik.converter.domain.exceptions
+package org.bortnik.converter.domain.exceptions.currency
 
 class CurrencyApiException: Exception {
     constructor(message: String): super(message)
