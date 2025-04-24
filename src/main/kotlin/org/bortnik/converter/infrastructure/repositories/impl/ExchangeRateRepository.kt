@@ -3,6 +3,7 @@ package org.bortnik.converter.infrastructure.repositories.impl
 import org.bortnik.converter.domain.dto.exchangeRate.ExchangeRate
 import org.bortnik.converter.domain.dto.exchangeRate.toDto
 import org.bortnik.converter.domain.dto.exchangeRate.toEntity
+import org.bortnik.converter.domain.exceptions.rate.RateCreateError
 import org.bortnik.converter.domain.exceptions.rate.RateNotFound
 import org.bortnik.converter.domain.repositories.ExchangeRateRepository
 import org.bortnik.converter.infrastructure.repositories.spring.SpringExchangeRateRepository
@@ -20,7 +21,12 @@ class ExchangeRateRepositoryImpl(
     }
 
     override suspend fun save(exchangeRate: ExchangeRate): ExchangeRate {
-        return repo.save(exchangeRate.toEntity()).toDto()
+        try {
+            return repo.save(exchangeRate.toEntity()).toDto()
+        } catch(e: Exception) {
+            throw RateCreateError("error with create rate")
+        }
+
     }
 
 }

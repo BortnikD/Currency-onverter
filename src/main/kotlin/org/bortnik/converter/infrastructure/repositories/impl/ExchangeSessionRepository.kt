@@ -3,13 +3,14 @@ package org.bortnik.converter.infrastructure.repositories.impl
 import org.bortnik.converter.domain.dto.exchangeSession.ExchangeSession
 import org.bortnik.converter.domain.dto.exchangeSession.toDto
 import org.bortnik.converter.domain.dto.exchangeSession.toEntity
+import org.bortnik.converter.domain.exceptions.session.SessionCreateError
 import org.bortnik.converter.domain.exceptions.session.SessionNotFound
 import org.bortnik.converter.domain.repositories.ExchangeSessionRepository
 import org.bortnik.converter.infrastructure.repositories.spring.SpringExchangeSessionRepository
 import org.springframework.stereotype.Repository
 
 @Repository
-class ExchangeCurrencyRepositoryImpl(
+class ExchangeSessionRepositoryImpl(
     private val repo: SpringExchangeSessionRepository
 ) : ExchangeSessionRepository {
 
@@ -24,7 +25,11 @@ class ExchangeCurrencyRepositoryImpl(
     }
 
     override suspend fun save(exchangeSession: ExchangeSession): ExchangeSession {
-        return repo.save(exchangeSession.toEntity()).toDto()
+        try {
+            return repo.save(exchangeSession.toEntity()).toDto()
+        } catch (e: Exception) {
+            throw SessionCreateError("Error with create session")
+        }
     }
 
 }
