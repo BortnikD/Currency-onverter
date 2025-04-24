@@ -10,3 +10,10 @@ fun ExchangeRate.toDto() =
         this.currency,
         this.rate
     )
+
+fun ExchangeRateDTO.toEntity() =
+    ExchangeRate(
+        sessionId = this.sessionId,
+        currency = this.currency,
+        rate = this.rate
+    )

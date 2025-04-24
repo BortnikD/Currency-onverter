@@ -9,3 +9,10 @@ fun ExchangeSession.toDto() =
         this.baseCurrency,
         this.date
     )
+
+
+fun ExchangeSessionDTO.toEntity() =
+    ExchangeSession(
+        baseCurrency = this.baseCurrency,
+        date = this.date
+    )
