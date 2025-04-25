@@ -16,8 +16,16 @@ spring:
 
   data:
     redis:
-      host: redis
-#      host: localhost
+#      host: redis
+      host: localhost
       port: 6379
 
 
+springdoc:
+  swagger-ui:
+    path: /swagger-ui.html
+  api-docs:
+    path: /api-docs
+    enabled: true
+  packages-to-scan: org.bortnik
+  paths-to-match: /api/**

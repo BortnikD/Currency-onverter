@@ -43,6 +43,9 @@ dependencies {
     implementation("org.flywaydb:flyway-core") // Убрана явная версия - используем версию из Spring Boot
     implementation("org.flywaydb:flyway-database-postgresql")
     runtimeOnly("org.postgresql:postgresql") // JDBC драйвер
+
+    // Open API
+    implementation("org.springdoc:springdoc-openapi-starter-webflux-ui:2.8.6")
 }
 
 kotlin {
